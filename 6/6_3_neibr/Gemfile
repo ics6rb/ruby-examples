@@ -1,0 +1,4 @@
+gem 'faker'
+gem 'rdoc'
+gem 'reek'
+gem 'rubocop'
