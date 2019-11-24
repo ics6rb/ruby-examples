@@ -7,8 +7,6 @@ require './main.rb'
 require './user.rb'
 
 class TestNeibr < Minitest::Test
-  attr_reader :precision
-
   def test_raises_argument_error_if_not_numbers_given
     assert_raises ArgumentError do
       neibr [[1, 'sd']]
@@ -36,4 +34,8 @@ class TestNeibr < Minitest::Test
     point = [Faker::Number.positive, Faker::Number.positive]
     assert_equal [[point, false]], neibr([point], PRECISION)
   end
+
+  private
+
+  attr_reader :precision
 end
