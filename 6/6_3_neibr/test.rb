@@ -3,8 +3,8 @@
 require 'faker'
 require 'minitest/autorun'
 
-require './main.rb'
-require './user.rb'
+require './main'
+require './user'
 
 class TestNeibr < Minitest::Test
   def test_raises_argument_error_if_not_numbers_given

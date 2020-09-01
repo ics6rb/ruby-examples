@@ -4,6 +4,8 @@ detectors:
   # тестового класса, а там они, полагаю, не нужны.
   IrresponsibleModule:
     enabled: false
+  NestedIterators:
+    max_allowed_nesting: 2
   # Более подробно об этой проверке можно почитать здесь:
   # https://github.com/troessner/reek/blob/v5.4.0/docs/Nil-Check.md
   # Несмотря на то, что следует избегать такого кода, в данном случае для упрощения логики
@@ -19,3 +21,5 @@ detectors:
     accept:
       - x
       - y
+  UtilityFunction:
+    enabled: false

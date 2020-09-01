@@ -1,5 +1,9 @@
 ---
 detectors:
+  DuplicateMethodCall:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
   # Отключение комментариев к классу - в данном случае они требуются только для
   # тестового класса, а там они, полагаю, не нужны.
   IrresponsibleModule:
@@ -19,3 +23,5 @@ detectors:
     accept:
       - x
       - y
+  UtilityFunction:
+    enabled: false

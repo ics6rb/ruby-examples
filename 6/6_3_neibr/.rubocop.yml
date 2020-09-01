@@ -2,13 +2,23 @@
 AllCops:
   Exclude:
     - Gemfile
+  NewCops: enable
 # Разумно увеличиваем максимальную длину строки.
-Metrics/LineLength:
-  Max: 120
+# В данном случае так много из-за появняющих комментариев, стандарт - 120.
+Layout/LineLength:
+  Max: 200
+# Повысим максимально допустимое значение цикломатической сложности исходя из условий задачи.
+# https://ru.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BA%D0%BB%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D1%8C
+Metrics/CyclomaticComplexity:
+  Max: 8
 # Так как задачи искусственные и математические,
 # целесообразно увеличить ограничение на максимальное количество строк метода.
 Metrics/MethodLength:
   Max: 15
+# Повысим максимально допустимое значение сложности восприятия (в смысле чтения) кода.
+# https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Metrics/PerceivedComplexity
+Metrics/PerceivedComplexity:
+  Max: 9
 # Так как мы не занимаемся международной разработкой и преследуем образовательные цели,
 # для большей наглядности разрешим русские комментарии.
 Style/AsciiComments:
@@ -16,4 +26,4 @@ Style/AsciiComments:
 # Чтобы было меньше "лишних" комментариев, отключим требования к документированию кода
 # (но вообще-то требование, конечно, хорошее и правильное).
 Style/Documentation:
-    Enabled: false
+  Enabled: false

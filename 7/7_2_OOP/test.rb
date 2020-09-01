@@ -2,7 +2,7 @@
 
 require 'faker'
 require 'minitest/autorun'
-require './main.rb'
+require './main'
 
 class TestRectangle < Minitest::Test
   def test_square_returns_true_if_length_eq_to_width

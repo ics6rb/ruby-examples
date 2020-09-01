@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './main.rb'
+require './main'
 
 puts 'Введите длину, ширину и высоту через пробел'
 

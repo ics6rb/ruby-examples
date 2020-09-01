@@ -2,7 +2,7 @@
 
 require 'faker'
 require 'minitest/autorun'
-require './main.rb'
+require './main'
 
 class TestWorkWithFiles < Minitest::Test
   def setup

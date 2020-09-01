@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './main.rb'
+require './main'
 
 # По условию нужно ввести десять точек, поэтому можем хранить это количество в константе.
 NUM_POINTS = 10

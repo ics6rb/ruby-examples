@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './main.rb'
+require './main'
 
 puts 'Введите ключ'
 
@@ -23,7 +23,7 @@ ARGF.each_line do |line|
   strings << line
 end
 
-unless strings.reject(&:empty?).reject { |string| /^[А-Яа-я\s]+$/ =~ string }.empty?
+unless strings.reject { |string| /^[А-Яа-я\s]+$/ =~ string }.empty?
   puts 'Программа работает только со строками на русском языке'
   exit 1
 end
@@ -31,10 +31,10 @@ end
 encrypted = strings.map { |string| encrypt string, key }
 decrypted = encrypted.map { |string| decrypt string, key }
 
-puts 'Зашифрованные строки'
+puts "Зашифрованные ключом #{key} строки:"
 
 print_strings encrypted
 
-puts 'Расшифрованные строки'
+puts "Расшифрованные ключом #{key} строки:"
 
 print_strings decrypted

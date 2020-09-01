@@ -14,7 +14,7 @@ end
 ##
 # Метод для проверки принадлежности массива точек в декартовых координатах графику функции f(x).
 # Функция может передаваться в виде блока или в виде функционального объекта (Proc).
-# Важно отметить, что хотя labmda и proc в Ruby имеют свои различия, тип у них один и тот же - Proc.
+# Важно отметить, что хотя lambda и proc в Ruby имеют свои различия, тип у них один и тот же - Proc.
 # +points+:: +Array+ Массив координат точек. Имеет вид [[x1, y1], [x2, y2], ...], где x и y имеют тип Float.
 # +precision+:: +Integer+ Количество знаков после запятой, до которого будет округляться значение f(x).
 # +function+:: +Proc+ Функция как Proc - один из вариантов передачи. Имеет значение по умолчанию,
@@ -34,10 +34,7 @@ def neibr(points, precision, function = nil)
     # кинет исключение.
     if block_given?
       [[x, y], y == yield(x).round(precision)]
-    # Конструкция function&.is_a? Proc значит (function не nil) && (function.is_a? Proc).
-    # Это способ писать меньше кода, который появился с Ruby 2.3.0.
-    # http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/
-    elsif function&.is_a? Proc
+    elsif function.is_a? Proc
       [[x, y], y == function.call(x).round(precision)]
     # Если ни блок, ни Proc не были переданы, вернем для любой точки false.
     else

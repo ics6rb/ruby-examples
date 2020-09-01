@@ -2,13 +2,14 @@
 AllCops:
   Exclude:
     - Gemfile
+  NewCops: enable
+# Разумно увеличиваем максимальную длину строки.
+Layout/LineLength:
+  Max: 120
 # Для тестов повысим максимально допустимое значение метрики ABC
 # https://en.wikipedia.org/wiki/ABC_Software_Metric
 Metrics/AbcSize:
   Max: 20
-# Разумно увеличиваем максимальную длину строки.
-Metrics/LineLength:
-  Max: 120
 # Так как задачи искусственные и математические,
 # целесообразно увеличить ограничение на максимальное количество строк метода.
 Metrics/MethodLength:
