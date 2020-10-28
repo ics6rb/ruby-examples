@@ -26,13 +26,8 @@ class TestNeibr < Minitest::Test
     belongs = [1.0, 0.54]
     not_belongs = [-9.0, 100.0]
     assert_equal(
-      [[belongs, true], [not_belongs, false]], neibr([belongs, not_belongs], PRECISION, proc { |x| Math.cos(x) })
+      [[belongs, true], [not_belongs, false]], neibr([belongs, not_belongs], PRECISION, &proc { |x| Math.cos(x) })
     )
-  end
-
-  def test_returns_false_if_no_block_or_proc_given
-    point = [Faker::Number.positive, Faker::Number.positive]
-    assert_equal [[point, false]], neibr([point], PRECISION)
   end
 
   private

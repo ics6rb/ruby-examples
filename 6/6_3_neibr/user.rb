@@ -37,7 +37,8 @@ if $PROGRAM_NAME == __FILE__
     # Так как функция neibr кидает исключение, мы можем его перехватывать и выводить, а саму ошибку передавать в
     # сообщении исключения.
     cos_belongs = neibr(points, PRECISION) { |x| Math.cos x }
-    sin_belongs = neibr(points, PRECISION, ->(x) { Math.sin x**2 })
+    # ->(x) { Math.sin x**2 } - это лямбда, а & превращает ее в элегантный блок.
+    sin_belongs = neibr(points, PRECISION, &->(x) { Math.sin x**2 })
   rescue ArgumentError => e
     puts e
     exit 1 # Это значит, что если было исключение, программа дальше этой строки не пойдет и вернет код 1.
